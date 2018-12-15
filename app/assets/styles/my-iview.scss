@@ -1,0 +1,58 @@
+.ivu-input {
+    &:hover {
+        border-color: #dcdee2;
+    }
+    &:focus {
+        box-shadow: none;
+        border-color: $bottom-color;
+    }
+}
+
+.ivu-page-item:hover {
+    border-color: $bottom-color; }
+  
+  .ivu-page-item:hover a {
+    color: $bottom-color; }
+  
+  .ivu-page-item-active {
+    border-color: $bottom-color; }
+  
+  .ivu-page-item-active a, .ivu-page-item-active:hover a {
+    color: $bottom-color; }
+
+
+.ivu-btn-default {
+    &:focus {
+        box-shadow: none;
+    }
+    &:hover {
+        border: 1px solid $primary-color;
+        color: $primary-color;
+    }
+    &:active {
+        border: 1px solid $primary-color;
+        color: $primary-color;
+    }
+}
+
+.ivu-btn-primary {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    &:hover {
+        background-color: $primary-color;
+        color: white;
+        border: none;
+    }
+    &:focus {
+        box-shadow: none;
+    }
+    // &:hover {
+    //     border: 1px solid $primary-color;
+    //     color: $primary-color;
+    // }
+    // &:active {
+    //     border: 1px solid $primary-color;
+    //     color: $primary-color;
+    // }
+}

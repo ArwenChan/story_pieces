@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preload" href="https://browser.sentry-cdn.com/4.4.1/bundle.min.js" as="script">
+    <link rel="prefetch" href="//cdn.quilljs.com/1.3.6/quill.snow.css" as="style">
+    <link rel="prefetch" href="//cdn.quilljs.com/1.3.6/quill.js" as="script">
+    <title>论坛</title>
+</head>
+<body>
+    <div id="app"></div>
+    <script src="https://browser.sentry-cdn.com/4.4.1/bundle.min.js"></script>
+    <script>
+        /* eslint-disable no-unused-vars */
+        let hasEditor = false
+        function createEditor() {
+            /* eslint-enable no-unused-vars */
+            let prefetchedStyle = document.createElement('link')
+            prefetchedStyle.href = '//cdn.quilljs.com/1.3.6/quill.snow.css'
+            prefetchedStyle.rel = 'stylesheet'
+            let prefetchedScript = document.createElement('script')
+            prefetchedScript.src = '//cdn.quilljs.com/1.3.6/quill.js'
+            document.head.appendChild(prefetchedStyle)
+            document.body.appendChild(prefetchedScript)
+        }
+    </script>
+</body>
+</html>

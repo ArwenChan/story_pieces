@@ -1,0 +1,65 @@
+$primary-color: #b15226;
+$secondary-color: #e67104d7;
+$bottom-color: #d3b861;
+$bg-color: #eec579;
+
+* {
+    box-sizing: border-box;
+}
+
+.primary-color {
+    color: $primary-color;
+    &:hover {
+        color: $primary-color;
+    };
+    &:active {
+        color: $primary-color;
+    }
+}
+.secondary-color {
+    color: $secondary-color;
+    &:hover {
+        color: $primary-color;
+    };
+    &:active {
+        color: $secondary-color;
+    }
+}
+
+hr {
+    margin-top: 10px;
+    border: 0.5px solid gainsboro;
+}
+
+a {
+    color: $secondary-color;
+    &:visited {
+        color: $secondary-color;
+    }
+    &:hover {
+        color: $secondary-color;
+    }
+}
+
+.side {
+    position: absolute;
+    right: 0;
+    top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    width: 200px;
+}
+
+.single-line {
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: bottom;
+}
+
+img {
+    max-width: 100%;
+}
