@@ -1,4 +1,4 @@
-export const host = '//localhost:8000'
+export const host = '//api.arwen.space'
 
 export const paths = {
     'hot_topic_list': '/api/forum/topics/',

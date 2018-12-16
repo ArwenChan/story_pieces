@@ -29,9 +29,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'Assets/styles/common.scss';
-@import 'Assets/styles/iview.css';
-@import 'Assets/styles/my-iview.scss';
+@import './assets/styles/common.scss';
+@import './assets/styles/iview.css';
+@import './assets/styles/my-iview.scss';
 
 .grid-container {
     display: grid;

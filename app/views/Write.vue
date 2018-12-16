@@ -13,7 +13,7 @@
 <script>
 import { api } from 'Api/api'
 import { addTopic } from 'Api/group'
-import Delta from 'quill-delta'
+// import Delta from 'quill-delta'
 export default {
     data() {
         return {
@@ -83,8 +83,8 @@ export default {
             const groupId = this.$route.params.id
             const brief = this.editor.getText(0, 120)
             this.replaceImgs(editor)
-            console.log(editor.innerHTML)
-            console.log(editor.brief)
+            // console.log(editor.innerHTML)
+            // console.log(editor.brief)
             addTopic(groupId, this.title, editor.innerHTML, brief, indexPic).then(res => {
                 this.$router.push(`/topic/${res.id}/`)
             })
@@ -112,7 +112,9 @@ export default {
             let reader = new FileReader()
             reader.onload = (e) => {
                 let range = this.editor.getSelection(true)
+                /* eslint-disable no-undef */
                 this.editor.updateContents(new Delta()
+                /* eslint-enable no-undef */
                     .retain(range.index)
                     .delete(range.length)
                     .insert({ image: e.target.result })

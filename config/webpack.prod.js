@@ -3,12 +3,11 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 
 const APP_PATH = path.resolve('./app')
 
-module.exports = merge(common('production'), {
+let webpackConfig = merge(common('production'), {
     mode: 'production',
     // devtool: 'hidden-source-map',
     optimization: {
@@ -47,7 +46,13 @@ module.exports = merge(common('production'), {
         }
     },
     plugins: [
-        new BundleAnalyzerPlugin(),
         new webpack.HashedModuleIdsPlugin(),
     ]
 })
+
+if (process.env.npm_config_report) {
+    const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+    webpackConfig.plugins.push(new BundleAnalyzerPlugin())
+}
+
+module.exports = webpackConfig
