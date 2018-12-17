@@ -49,15 +49,23 @@ let webpackConfig = merge(common('production'), {
     },
     plugins: [
         new webpack.HashedModuleIdsPlugin(),
-        // new PurgecssPlugin({
-        //     paths: glob.sync([
-        //         path.join(APP_PATH, './**/*.vue'),
-        //         path.join(APP_PATH, './*.html'),
-        //         path.join(APP_PATH, './*.vue'),
-        //         path.join(APP_PATH, './*.js'),
-        //         path.join(APP_PATH, './**/*.js'),
-        //     ])
-        // }),
+        new PurgecssPlugin({
+            paths: glob.sync([
+                path.join(APP_PATH, './**/*.vue'),
+                path.join(APP_PATH, './*.html'),
+                path.join(APP_PATH, './*.vue'),
+                path.join(APP_PATH, './*.js'),
+                path.join(APP_PATH, './**/*.js'),
+                path.join(APP_PATH, '../node_modules/**/*.vue')
+            ]),
+            /* dynamic class in iview, stupid method*/
+            whitelistPatterns: [
+                /^ivu-(input|btn|btn-group|dropdown|dropdown-item)/,
+                /^ivu-(icon|page|select|select-group|select-item)/,
+                /^ivu-(steps|upload|progress)/,
+                /^ivu-(alert|message|modal)/,
+            ]
+        }),
     ]
 })
 
