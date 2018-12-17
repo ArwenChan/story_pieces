@@ -1,4 +1,5 @@
-export const host = '//api.arwen.space'
+export const host = process.env.NODE_ENV === 'production' ?
+    '//api.arwen.space' : 'localhost:8000'
 
 export const paths = {
     'hot_topic_list': '/api/forum/topics/',

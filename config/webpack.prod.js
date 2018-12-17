@@ -4,12 +4,14 @@ const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
+const PurgecssPlugin = require('purgecss-webpack-plugin')
+const glob = require('glob-all')
 
 const APP_PATH = path.resolve('./app')
 
 let webpackConfig = merge(common('production'), {
     mode: 'production',
-    // devtool: 'hidden-source-map',
+    devtool: 'cheap-module-source-map',
     optimization: {
         runtimeChunk: 'single',
         minimizer: [
@@ -22,13 +24,13 @@ let webpackConfig = merge(common('production'), {
         ],
         splitChunks: {
             cacheGroups: {
-                styles: {
-                    name: 'styles',
-                    test: /\.css$/,
-                    chunks: 'all',
-                    enforce: true,
-                    priority: 10,
-                },
+                // styles: {
+                //     name: 'styles',
+                //     test: /\.css$/,
+                //     chunks: 'all',
+                //     enforce: true,
+                //     priority: 10,
+                // },
                 vendors: {
                     test: /[\\/]node_modules[\\/]/,
                     name: 'vendors',
@@ -47,6 +49,15 @@ let webpackConfig = merge(common('production'), {
     },
     plugins: [
         new webpack.HashedModuleIdsPlugin(),
+        // new PurgecssPlugin({
+        //     paths: glob.sync([
+        //         path.join(APP_PATH, './**/*.vue'),
+        //         path.join(APP_PATH, './*.html'),
+        //         path.join(APP_PATH, './*.vue'),
+        //         path.join(APP_PATH, './*.js'),
+        //         path.join(APP_PATH, './**/*.js'),
+        //     ])
+        // }),
     ]
 })
 

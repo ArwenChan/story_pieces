@@ -1,11 +1,8 @@
 const path = require('path')
-// const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const PurgecssPlugin = require('purgecss-webpack-plugin')
-const glob = require('glob-all')
 
 module.exports = mode => {
     const APP_PATH = path.resolve('./app')
@@ -82,14 +79,7 @@ module.exports = mode => {
             new MiniCssExtractPlugin({
                 filename: devMode ? '[name].css' : '[name].[hash].css',
                 chunkFilename: devMode ? '[name].css' : '[name].[hash].css',
-            }),
-            new PurgecssPlugin({
-                paths: glob.sync([
-                  path.join(APP_PATH, './index.html'),
-                  path.join(APP_PATH, './**/*.vue'),
-                  path.join(APP_PATH, './**/*.js')
-                ])
-            }),
+            })
         ],
         resolve: {
             alias: {
