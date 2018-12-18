@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from 'Views/Home.vue'
+import Hot from 'Views/Hot.vue'
+import Mine from 'Views/Mine.vue'
+import TopicDetail from 'Views/TopicDetail.vue'
 import { TOGGLE_POPUP, CHANGE_POPUP } from 'Store/mutation-types'
 import { check_login } from './api/user'
 
-const Hot = () => import(/* webpackChunkName: "home" */'Views/Hot.vue')
-const Mine = () => import(/* webpackChunkName: "home" */'Views/Mine.vue')
 const Account = () => import(/* webpackChunkName: "account" */'Views/Account.vue')
 const UserInfo = () => import(/* webpackChunkName: "account" */'Views/UserInfo.vue')
 const ResetPassword = () => import(/* webpackChunkName: "account" */'Views/ResetPassword.vue')
@@ -15,7 +16,6 @@ const CreateGroup = () => import(/* webpackChunkName: "group" */'Views/CreateGro
 const GroupDetail = () => import(/* webpackChunkName: "group" */'Views/GroupDetail.vue')
 const EditGroup = () => import(/* webpackChunkName: "group" */'Views/EditGroup.vue')
 const GroupUsers = () => import(/* webpackChunkName: "group" */'Views/GroupUsers.vue')
-const TopicDetail = () => import(/* webpackChunkName: "home" */'Views/TopicDetail.vue')
 const Write = () => import(/* webpackChunkName: "group" */'Views/Write.vue')
 const GroupHome = () => import(/* webpackChunkName: "group" */'Views/GroupHome.vue')
 

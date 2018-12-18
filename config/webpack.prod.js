@@ -6,9 +6,9 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin")
 const PurgecssPlugin = require('purgecss-webpack-plugin')
 const glob = require('glob-all')
+const CompressionPlugin = require("compression-webpack-plugin")
 
 const APP_PATH = path.resolve('./app')
-
 let webpackConfig = merge(common('production'), {
     mode: 'production',
     devtool: 'cheap-module-source-map',
@@ -49,6 +49,9 @@ let webpackConfig = merge(common('production'), {
     },
     plugins: [
         new webpack.HashedModuleIdsPlugin(),
+        new CompressionPlugin({
+            test: /\.(js|css)/,
+        }),
         new PurgecssPlugin({
             paths: glob.sync([
                 path.join(APP_PATH, './**/*.vue'),
