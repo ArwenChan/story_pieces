@@ -4,6 +4,7 @@ import { LOGOUT, LOGIN, REFRESH_USER } from 'Store/mutation-types'
 
 const USER_STORE_KEY = 'ue'
 const USER_LOGIN_COOKIE = 'gogo'
+export const DEFAULT_AVATAR = 'http://pj5hr98xx.bkt.clouddn.com/user.jpg'
 
 function setLoginCookie() {
     setCookie(USER_LOGIN_COOKIE, '1', 3600)

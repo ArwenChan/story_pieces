@@ -14,7 +14,7 @@
         </div>
         <div class="side">
             <div class="avatar-container">
-                <div><img :src="user.avatar" class="avatar"></div>
+                <div><img :src="user.avatar ? user.avatar : defaultAvatar" class="avatar"></div>
                 <div class="user-info">
                     <p class="single-line">{{user.nickname}}</p>
                     <p class="single-line" v-if="user.city">({{user.city}})</p>
@@ -29,6 +29,7 @@ import GroupJoined from 'Components/GroupJoined.vue'
 import GroupHomeAll from 'Components/GroupHomeAll.vue'
 import TopicList from 'Components/SimpleTopicList.vue'
 import { mapGetters } from 'vuex'
+import { DEFAULT_AVATAR } from 'Api/user'
 export default {
     components: {
         GroupHomeAll,
@@ -43,6 +44,7 @@ export default {
             createdTopics: [],
             currentTab: GroupHomeAll,
             bindData: {},
+            defaultAvatar: DEFAULT_AVATAR,
         }
     },
     computed: {

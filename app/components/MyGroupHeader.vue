@@ -1,6 +1,6 @@
 <template>
     <div class="group-header-wrapper">
-        <img :src="user.avatar" class="avatar">
+        <img :src="user.avatar ? user.avatar : defaultAvatar" class="avatar">
         <div class="info">
             <router-link to="/group/home/" class="title">我的小组主页</router-link>
             <p>{{user.nickname}}</p>
@@ -9,7 +9,13 @@
 </template>
 <script>
 import { mapGetters } from 'vuex'
+import { DEFAULT_AVATAR } from 'Api/user'
 export default {
+    data() {
+        return {
+            defaultAvatar: DEFAULT_AVATAR
+        }
+    },
     computed: {
         ...mapGetters({
             user: 'getUserInfo'

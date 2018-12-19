@@ -3,7 +3,7 @@
         <div class="content">
             <h1>{{topic.title}}</h1>
             <div class="topic-box">
-                <div><img :src="userInfo.avatar" class="avatar"></div>
+                <div><img :src="userInfo.avatar ? userInfo.avatar : defaultAvatar" class="avatar"></div>
                 <div class="info">
                     <div class="topic-header">
                         <span class="create-user single-line">来自：{{userInfo.nickname}}</span>
@@ -52,6 +52,7 @@ import { timeBeauty } from 'Utils/date'
 import Reply from 'Components/Reply.vue'
 import Group from 'Components/Group.vue'
 import SimpleTopic from 'Components/TopicOnlyName.vue'
+import { DEFAULT_AVATAR } from 'Api/user'
 
 export default {
     components: {
@@ -73,6 +74,7 @@ export default {
             group: {},
             groupRecent: [],
             initial: true,
+            defaultAvatar: DEFAULT_AVATAR
         }
     },
     computed: {

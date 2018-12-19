@@ -1,7 +1,8 @@
 <template>
     <div class="container">
         <div>
-            <img :src="reply.create_user.avatar" alt="avatar" class="avatar">
+            <img :src="reply.create_user.avatar ? reply.create_user.avatar : defaultAvatar"
+            alt="avatar" class="avatar">
         </div>
         <div class="reply">
             <div class="header">
@@ -34,6 +35,7 @@
 <script>
 import { timeBeauty } from 'Utils/date'
 import { likeMessage } from 'Api/topic'
+import { DEFAULT_AVATAR } from 'Api/user'
 export default {
     props: {
         reply: {
@@ -54,6 +56,7 @@ export default {
             liked: this.likedArray.includes(this.reply.id),
             showAnswer: false,
             answer: '',
+            defaultAvatar: DEFAULT_AVATAR
         }
     },
     computed: {

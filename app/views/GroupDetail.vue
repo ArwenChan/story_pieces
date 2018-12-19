@@ -46,7 +46,7 @@
             <div class="side-title">最近加入</div>
             <div class="side-body">
                 <div v-for="item in recentUsers" :key="item.user.id">
-                    <img :src="item.user.avatar">
+                    <img :src="item.user.avatar ? item.user.avatar : defaultAvatar">
                     <span class="single-line">{{item.user.nickname}}</span>
                 </div>
             </div>
@@ -61,6 +61,7 @@ import { groupDetail, groupTopics, groupUsers, removeUserFromGroup, add_user_to_
 import { mapGetters } from 'vuex'
 import { timeReadable } from '../utils/date.js'
 import SimpleTopic from 'Components/TopicSimpleItem.vue'
+import { DEFAULT_AVATAR } from 'Api/user'
 
 export default {
     components: {
@@ -77,6 +78,7 @@ export default {
             pageSize: 20,
             current: 1,
             orderBy: 'create_time',
+            defaultAvatar: DEFAULT_AVATAR
         }
     },
     computed: {

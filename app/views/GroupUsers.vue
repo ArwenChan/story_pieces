@@ -7,7 +7,7 @@
                 </div>
                 <div class="users">
                     <div v-for="item in creater" :key="item.user.id" class="avatar-container">
-                        <img :src="item.user.avatar" class="avatar">
+                        <img :src="item.user.avatar ? item.user.avatar : defaultAvatar" class="avatar">
                         <p>{{item.user.nickname}}</p>
                         <p v-if="item.user.city">({{item.user.city}})</p>
                     </div>
@@ -19,7 +19,7 @@
                 </div>
                 <div class="users">
                     <div v-for="item in manager" :key="item.user.id" class="avatar-container">
-                        <img :src="item.user.avatar" class="avatar">
+                        <img :src="item.user.avatar ? item.user.avatar : defaultAvatar" class="avatar">
                         <p>{{item.user.nickname}}</p>
                         <p v-if="item.user.city">({{item.user.city}})</p>
                     </div>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="users">
                     <div v-for="item in normal" :key="item.user.id" class="avatar-container">
-                        <img :src="item.user.avatar" class="avatar">
+                        <img :src="item.user.avatar ? item.user.avatar : defaultAvatar" class="avatar">
                         <p>{{item.user.nickname}}</p>
                         <p v-if="item.user.city">({{item.user.city}})</p>
                     </div>
@@ -55,6 +55,7 @@
 <script>
 import { groupUsers, groupDetail } from 'Api/group'
 import Group from 'Components/Group.vue'
+import { DEFAULT_AVATAR } from 'Api/user'
 
 export default {
     components: {
@@ -67,6 +68,7 @@ export default {
             group: {},
             pageSize: 20,
             current: 1,
+            defaultAvatar: DEFAULT_AVATAR
         }
     },
     computed: {
