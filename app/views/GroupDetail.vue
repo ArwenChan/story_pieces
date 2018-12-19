@@ -9,8 +9,8 @@
                 <div>
                     <span v-show="isMember" class="header-content">我是这个小组的{{identity}} > </span>
                     <Button size="small" v-if="isCreater" @click="edit">编辑</Button>
-                    <Button v-else-if="isMember" @click="confirmQuit">退出</Button>
-                    <Button v-else @click="join">加入</Button>
+                    <Button size="small" v-else-if="isMember" @click="confirmQuit">退出</Button>
+                    <Button size="small" v-else @click="join">加入</Button>
                 </div>
             </div>
             <div class="desc">

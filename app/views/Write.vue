@@ -113,8 +113,9 @@ export default {
             reader.onload = (e) => {
                 let range = this.editor.getSelection(true)
                 /* eslint-disable no-undef */
-                this.editor.updateContents(new Delta()
+                const Delta = Quill.import('delta')
                 /* eslint-enable no-undef */
+                this.editor.updateContents(new Delta()
                     .retain(range.index)
                     .delete(range.length)
                     .insert({ image: e.target.result })

@@ -46,9 +46,9 @@ export default {
             return this.userGroups.includes(this.group.id)
         }
     },
-    beforeUpdate() {
-        this.groupCount = this.group.count
-    },
+    // beforeUpdate() {
+    //     this.groupCount = this.group.count
+    // },
     methods: {
         join() {
             add_user_to_group(this.group.id).then(res => {

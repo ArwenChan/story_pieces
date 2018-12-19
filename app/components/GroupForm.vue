@@ -45,6 +45,7 @@ import { host } from 'Api/paths'
 import { getCookie } from 'Utils/storage'
 import { avatarPreview } from 'Utils/image'
 import { createGroup, editGroup } from 'Api/group'
+import { refresh_user_info } from 'Api/user'
 export default {
     props: {
         group: {
@@ -120,6 +121,7 @@ export default {
             }
             else {
                 createGroup(this.name, this.icon, this.brief, tags).then(res => {
+                    refresh_user_info()
                     this.$message.success('创建成功，审核中...')
                     setTimeout(this.$router.push('/mine/'), 2000)
                 })

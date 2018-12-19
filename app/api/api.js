@@ -28,12 +28,14 @@ export const api = {
             window.WebApp.$store.commit(CHANGE_POPUP, 'login')
             window.WebApp.$store.commit(TOGGLE_POPUP)
             // window.WebApp.$log.error(errorObj, error)
-            return Promise.reject(errorObj)
+        }
+        else if (error.status === 429) {
+            window.WebApp.$message.warning('请求太过频繁')
         }
         else {
             window.WebApp.$log.error(errorObj, error)
-            return Promise.reject(errorObj)
         }
+        return Promise.reject(errorObj)
     },
 
     handleUrl: function (urlKey, { pathParams }) {
