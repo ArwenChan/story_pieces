@@ -3,7 +3,7 @@
         <label for="verify-code" v-show="hasLabel">验证码：</label>
         <Input type="text" id="verify-code" :placeholder="hasPlaceHolder ? '验证码' : ''"
             v-model.trim="verCode" @change.native="checkVerCode" class="input" :disabled="disable">
-            <div slot="append" style="width:70px;">
+            <div slot="append" style="width:80px;">
                 <Button v-if="!getTimer" :disabled="disable" @click="getCode" >
                     发送验证码
                 </Button>
@@ -94,5 +94,14 @@ export default {
 label {
     word-break: keep-all;
     align-self: center;
+}
+.ivu-btn {
+    border: initial;
+    &:hover {
+        border: initial;
+    }
+    &:active {
+        border: initial;
+    }
 }
 </style>
